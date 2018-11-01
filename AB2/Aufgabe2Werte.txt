@@ -1,0 +1,3 @@
+Global  162
+Adaptiv 160
+Mean    527

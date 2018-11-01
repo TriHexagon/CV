@@ -1,6 +1,10 @@
  CVAdaptiveBin  - Aufgabe 1.3 als Kommandozeilenprogramm
  
+ Bsp03-Thresholding - Aufgabe 2 angepasste Anwendung
+ 
  CVGlaettung    - Aufgabe 3 als Kommandozeilenprogramm
  CVGleattungGUI - Aufgabe 3 als GUI-Anwendung
  
  Die Kommandozeilenprogramme erwarten den Dateinamen des Eingabebilds als Kommandozeilenparameter!
+ 
+ Aufgabe2Werte.txt enthält Schwellwerte für Aufgabe 2.
