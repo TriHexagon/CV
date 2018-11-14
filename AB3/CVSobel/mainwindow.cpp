@@ -14,7 +14,7 @@ static float vSobelArray[] = {
 };
 
 static float hSobelArray[] = {
-    1.0f,  2.0f,  -1.0f,
+    1.0f,  2.0f,  1.0f,
     0.0f,  0.0f,  0.0f,
     -1.0f, -2.0f, -1.0f,
 };
@@ -63,12 +63,25 @@ void MainWindow::on_processButton_clicked()
         {
             //Vertikal
             vSobelKernel = cv::Mat(3, 3, CV_32F, vSobelArray).clone();
+            /*
+            cv::Mat vSobelKernel = (cv::Mat_<float>(3,3) <<
+                1.0f, 0.0f, -1.0f,
+                2.0f, 0.0f, -2.0f,
+                1.0f, 0.0f, -1.0f
+            );*/
+
             vSobelKernel /= divisor;
         }
 
         if (horizontal)
         {
             hSobelKernel = cv::Mat(3, 3, CV_32F, hSobelArray).clone();
+            /*cv::Mat hSobelKernel = (cv::Mat_<float>(3,3) <<
+               1.0f,  2.0f,  1.0f,
+               0.0f,  0.0f,  0.0f,
+               -1.0f, -2.0f, -1.0f
+            );
+            */
             hSobelKernel /= divisor;
         }
 
@@ -89,9 +102,9 @@ void MainWindow::on_processButton_clicked()
         if (vertical && horizontal)
         {
             //Berechne Magnitude
-            for (int x = 0; x < outImage.cols; x++)
+            for (int y = 0; y < outImage.cols; y++)
             {
-                for (int y = 0; y < outImage.rows; y++)
+                for (int x = 0; x < outImage.rows; x++)
                 {
                     unsigned vValue = sobelVOut.at<uchar>(x, y);
                     unsigned hValue = sobelHOut.at<uchar>(x, y);
