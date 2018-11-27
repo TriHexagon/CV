@@ -21,13 +21,14 @@ int main(int argc, char* argv[])
     }
 
     cv::Mat tmpImage;
-    Canny(inImage, tmpImage, 50, 200, 3);
+    Canny(inImage, tmpImage, 1600, 3200, 5);
+    //Canny(inImage, tmpImage, 150, 300, 3);
     //cv::cvtColor(tmpImage, tmpImage, CV_GRAY2BGR);
 
     vector<cv::Vec4i> lines;
-    //cv::HoughLinesP(tmpImage, lines, 1, CV_PI/180, 80, 30, 10);
-    //cv::HoughLinesP(tmpImage, lines, 1, CV_PI/360, 20, 50, 20);
-    cv::HoughLinesP(tmpImage, lines, 1, CV_PI/360, 10, 50, 20);
+    //cv::HoughLinesP(tmpImage, lines, 1, CV_PI/180, 25, 5, 10);
+    //cv::HoughLinesP(tmpImage, lines, 1, CV_PI/180, 25);
+    cv::HoughLinesP(tmpImage, lines, 1, CV_PI/180, 25, 5);
 
     cv::Scalar color(255, 255, 255);
     for (const auto& line : lines)
@@ -43,7 +44,7 @@ int main(int argc, char* argv[])
     }
 
     cv::namedWindow("Ausgabe", CV_WINDOW_NORMAL);
-    cv::imshow("Ausgabe", tmpImage);
+    cv::imshow("Ausgabe", inImage);
     cv::waitKey();
 
     return 0;
