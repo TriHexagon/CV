@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
     }
 
     cv::Mat tmpImage;
-    Canny(inImage, tmpImage, 1600, 3200, 5);
+    cv::Canny(inImage, tmpImage, 1600, 3200, 5);
     //Canny(inImage, tmpImage, 150, 300, 3);
     //cv::cvtColor(tmpImage, tmpImage, CV_GRAY2BGR);
 
